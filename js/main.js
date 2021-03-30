@@ -12,7 +12,22 @@ function handleInput(event) {
 $photoUrl.addEventListener('input', handleInput);
 
 function handleSubmit(event) {
-  // console.log('submit event', event.target);
+  event.preventDefault();
+  var entries;
+  entries = event.target.elements;
+  // console.log('entries', entries);
+
+  var array = [];
+  for (var i = 0; i < 3; i++) {
+    array.push([entries[i].name, entries[i].value]);
+    // console.log('array:', array);
+  }
+
+  var object = {};
+  for (var k = 0; k < array.length; k++) {
+    object[array[k][0]] = array[k][1];
+  }
+  // console.log('object', object);
 }
 
 $form.addEventListener('submit', handleSubmit);
