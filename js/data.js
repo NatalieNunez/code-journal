@@ -32,9 +32,10 @@ function handleSubmit(event) {
     }
   }
 
-  // console.log('object value:', object);
-
   data.nextEntryId = data.nextEntryId + 1;
+  // console.log(data);
+  data.entries.unshift(object);
+  // console.log('object value:', object);
   // console.log(data);
 
   // var jsonStr = JSON.stringify(object);
