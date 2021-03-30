@@ -33,11 +33,11 @@
           <form class="column-half">
             <div class="form-content">
               <label for="title">Title</label>
-              <input type="text" name="title" id="title" required>
+              <input type="text" name="title" id="title" required="required">
             </div>
             <div class="form-content">
               <label for="imageUrl">Photo URL</label>
-              <input type="url" name="image" id="imageUrl">
+              <input type="url" name="image" id="imageUrl" required="required">
             </div>
           </form>
         </div>
@@ -45,13 +45,13 @@
           <div class="column-full">
             <div class="form-content note">
               <label for="notes">Notes</label>
-              <textarea id="notes" name="notes"></textarea>
+              <textarea id="notes" name="notes" required="required"></textarea>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="column-full button">
-            <button class="save">SAVE</button>
+            <button type="submit">SAVE</button>
           </div>
         </div>
       </div>
