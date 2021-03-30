@@ -34,9 +34,9 @@ function handleSubmit(event) {
   }
 
   data.nextEntryId = data.nextEntryId + 1;
-  // console.log(data);
   data.entries.unshift(object);
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
   // console.log('object value:', object);
   // console.log(data);
 
