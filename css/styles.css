@@ -1,7 +1,20 @@
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: rgb(250, 250, 250);
+}
+
 .header {
+  font-family: 'Encode Sans', sans-serif;
   color: white;
   background-color: rgb(77, 35, 110);
-  padding: 1.5rem;
+  padding: 1.1rem;
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0.5rem 0;
+  font-weight: 600;
 }
 
 header {
@@ -12,18 +25,50 @@ header {
 label {
   display: block;
   padding-bottom: 2%;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .form-content {
-  padding: 3% 0;
+  padding-bottom: 5%;
+}
+
+.form-content.note {
+  padding: 1rem 0;
 }
 
 input {
   width: 100%;
   padding: 2%;
+  border: solid 1px gainsboro;
 }
 
 textarea {
   width: 100%;
   height: 200px;
+  padding: 2%;
+  border: solid 1px gainsboro;
+}
+
+textarea:focus {
+  outline-color: purple;
+}
+
+img {
+  object-fit: contain;
+}
+
+button {
+  color: white;
+  background-color: rgb(104 56 142);
+  outline: none;
+  border-style: none;
+  padding: 1% 2%;
+  border-radius: 7%;
+  margin: 0 0 5%;
+  font-size: 1rem;
+}
+
+.column-full.button {
+  text-align: end;
 }
