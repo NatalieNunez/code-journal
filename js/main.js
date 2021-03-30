@@ -2,16 +2,17 @@
 /* exported data */
 var $photoUrl = document.querySelector('#imageUrl');
 var $photo = document.querySelector('img');
-// console.log('$photoUrl', $photoUrl);
-// console.log('$photo', $photo);
+var $form = document.querySelector('form');
 
-function inputChange(event) {
+function handleInput(event) {
   var userImageUrl = event.target.value;
-  // console.log('value', event.target.value);
   $photo.setAttribute('src', userImageUrl);
 }
 
-$photoUrl.addEventListener('input', inputChange);
-// create a variable to store dom object of photoUrl input
-// when input event fires, change src attribute of img element to
-// the text in the input field
+$photoUrl.addEventListener('input', handleInput);
+
+function handleSubmit(event) {
+  // console.log('submit event', event.target);
+}
+
+$form.addEventListener('submit', handleSubmit);
