@@ -31,7 +31,12 @@ function handleSubmit(event) {
       object[key] = data[key];
     }
   }
-  // console.log('object value after:', object);
+
+  // console.log('object value:', object);
+
+  data.nextEntryId = data.nextEntryId + 1;
+  // console.log(data);
+
   // var jsonStr = JSON.stringify(object);
   // localStorage.setItem('entries', jsonStr);
   // console.log('object', object);
