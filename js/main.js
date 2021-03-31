@@ -18,13 +18,14 @@ function handleSubmit(event) {
   var $imageUrl = document.getElementById('imageUrl');
   var $notes = document.getElementById('notes');
 
-  data.nextEntryId = data.nextEntryId + 1;
-
   var valuesObject = {
     title: $title.value,
     imageUrl: $imageUrl.value,
-    notes: $notes.value
+    notes: $notes.value,
+    nextEntryId: data.nextEntryId
   };
+
+  data.nextEntryId = data.nextEntryId + 1;
 
   data.entries.unshift(valuesObject);
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
