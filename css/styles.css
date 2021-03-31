@@ -65,3 +65,13 @@ button {
 .column-full.button {
   text-align: end;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: inline;
+}
+
+.row.entry-block {
+  margin-bottom: 5%;
+}
