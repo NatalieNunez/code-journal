@@ -22,7 +22,7 @@ function handleSubmit(event) {
     title: $title.value,
     imageUrl: $imageUrl.value,
     notes: $notes.value,
-    nextEntryId: data.nextEntryId
+    entryId: data.nextEntryId
   };
 
   data.nextEntryId = data.nextEntryId + 1;
