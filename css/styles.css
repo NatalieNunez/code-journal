@@ -4,16 +4,23 @@ body {
 }
 
 .header {
-  font-family: 'Encode Sans', sans-serif;
-  color: white;
+  /* font-family: 'Encode Sans', sans-serif;
+  color: white; */
   background-color: rgb(77, 35, 110);
   padding: 1.1rem;
-  font-size: 1.5rem;
+
+  /* font-size: 1.5rem; */
 }
 
 h1 {
   font-size: 3rem;
   margin: 0.5rem 0;
+}
+
+h2 {
+  font-family: 'Encode Sans', sans-serif;
+  color: white;
+  font-size: 1.5rem;
 }
 
 label {
