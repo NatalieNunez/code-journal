@@ -13,27 +13,20 @@ $photoUrl.addEventListener('input', handleInput);
 
 function handleSubmit(event) {
   event.preventDefault();
-  var values;
-  values = event.target.elements;
 
-  var array = [];
-  for (var i = 0; i < 3; i++) {
-    array.push([values[i].name, values[i].value]);
-  }
-
-  var object = {};
-  for (var k = 0; k < array.length; k++) {
-    object[array[k][0]] = array[k][1];
-  }
-
-  for (var key in data) {
-    if (key === 'nextEntryId') {
-      object[key] = data[key];
-    }
-  }
+  var $title = document.getElementById('title');
+  var $imageUrl = document.getElementById('imageUrl');
+  var $notes = document.getElementById('notes');
 
   data.nextEntryId = data.nextEntryId + 1;
-  data.entries.unshift(object);
+
+  var valuesObject = {
+    title: $title.value,
+    imageUrl: $imageUrl.value,
+    notes: $notes.value
+  };
+
+  data.entries.unshift(valuesObject);
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 
