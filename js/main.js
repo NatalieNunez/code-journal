@@ -34,3 +34,35 @@ function handleSubmit(event) {
 }
 
 $form.addEventListener('submit', handleSubmit);
+
+var $parent = event.target.dataset.view;
+
+function DOMContentLoaded(entry) {
+  var $div = document.createElement('div');
+  $div.setAttribute('class', 'row entry-block');
+  $parent.appendChild($div);
+
+  var $img = document.createElement('img');
+  $img.setAttribute('class', 'column-half');
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $div.appendChild($img);
+
+  var $ul = document.createElement('ul');
+  $ul.setAttribute('class', 'column-half');
+  $div.appendChild($ul);
+
+  var $li1 = document.createElement('li');
+  var $li2 = document.createElement('li');
+
+  $ul.appendChild($li1, $li2);
+
+  var $h1 = document.createElement('h1');
+  var $h4 = document.createElement('h4');
+
+  $li1.appendChild($h1);
+  $li2.appendChild($h4);
+
+  return $parent;
+}
+
+$parent.addEventListener('DOMContentLoaded', DOMContentLoaded);
