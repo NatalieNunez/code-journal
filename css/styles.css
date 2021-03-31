@@ -4,12 +4,8 @@ body {
 }
 
 .header {
-  /* font-family: 'Encode Sans', sans-serif;
-  color: white; */
   background-color: rgb(77, 35, 110);
   padding: 1.1rem;
-
-  /* font-size: 1.5rem; */
 }
 
 h1 {
