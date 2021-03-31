@@ -37,8 +37,6 @@ function handleSubmit(event) {
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 
-  // console.log('object value:', object);
-  // console.log('data', data);
 }
 
 $form.addEventListener('submit', handleSubmit);
