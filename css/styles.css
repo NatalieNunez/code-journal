@@ -14,12 +14,6 @@ body {
 h1 {
   font-size: 3rem;
   margin: 0.5rem 0;
-  font-weight: 600;
-}
-
-header {
-  max-width: 100%;
-  margin: 0 auto;
 }
 
 label {
@@ -29,11 +23,7 @@ label {
   font-weight: 600;
 }
 
-.form-content {
-  padding-bottom: 5%;
-}
-
-.form-content.note {
+.note {
   padding: 1rem 0;
 }
 
