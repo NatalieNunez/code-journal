@@ -3,6 +3,7 @@
 var $photoUrl = document.querySelector('#imageUrl');
 var $photo = document.querySelector('img');
 var $form = document.querySelector('form');
+var valuesObject = {};
 
 function handleInput(event) {
   var userImageUrl = event.target.value;
@@ -18,7 +19,7 @@ function handleSubmit(event) {
   var $imageUrl = document.getElementById('imageUrl');
   var $notes = document.getElementById('notes');
 
-  var valuesObject = {
+  valuesObject = {
     title: $title.value,
     imageUrl: $imageUrl.value,
     notes: $notes.value,
@@ -35,8 +36,6 @@ function handleSubmit(event) {
 
 $form.addEventListener('submit', handleSubmit);
 
-var $parent = event.target.dataset.view;
-
 function DOMContentLoaded(entry) {
   var $div = document.createElement('div');
   $div.setAttribute('class', 'row entry-block');
@@ -44,7 +43,7 @@ function DOMContentLoaded(entry) {
 
   var $img = document.createElement('img');
   $img.setAttribute('class', 'column-half');
-  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $img.setAttribute('src', data.entries[i].imageUrl);
   $div.appendChild($img);
 
   var $ul = document.createElement('ul');
@@ -54,15 +53,27 @@ function DOMContentLoaded(entry) {
   var $li1 = document.createElement('li');
   var $li2 = document.createElement('li');
 
-  $ul.appendChild($li1, $li2);
+  $ul.appendChild($li1);
+  $ul.appendChild($li2);
 
-  var $h1 = document.createElement('h1');
-  var $h4 = document.createElement('h4');
+  var $titleNode = document.createElement('h1');
+  var $titleText = document.createTextNode(data.entries[i].title);
+  $titleNode.appendChild($titleText);
 
-  $li1.appendChild($h1);
-  $li2.appendChild($h4);
+  var $notesNode = document.createElement('h4');
+  var $notesText = document.createTextNode(data.entries[i].notes);
+  $notesNode.appendChild($notesText);
 
-  return $parent;
+  $li1.appendChild($titleNode);
+  $li2.appendChild($notesNode);
+  return $div;
 }
 
-$parent.addEventListener('DOMContentLoaded', DOMContentLoaded);
+var $parent = document.getElementById('view-entries');
+
+for (var i = 0; i < data.entries.length; i++) {
+  var object = DOMContentLoaded(valuesObject);
+  $parent.appendChild(object);
+}
+
+window.addEventListener('DOMContentLoaded', DOMContentLoaded);
