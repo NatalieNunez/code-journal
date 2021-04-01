@@ -12,14 +12,16 @@ function handleInput(event) {
 
 $photoUrl.addEventListener('input', handleInput);
 
+var $entryForm = document.getElementById('entry-form');
+var $viewEntries = document.querySelector('.hidden');
+var $entryLink = document.querySelector('a');
+
 function handleSubmit(event) {
   event.preventDefault();
 
   var $title = document.getElementById('title');
   var $imageUrl = document.getElementById('imageUrl');
   var $notes = document.getElementById('notes');
-  var $entryForm = document.getElementById('entry-form');
-  var $viewEntries = document.querySelector('.hidden');
 
   valuesObject = {
     title: $title.value,
@@ -33,9 +35,16 @@ function handleSubmit(event) {
   data.entries.unshift(valuesObject);
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
-  $viewEntries.removeAttribute('class');
-  $entryForm.setAttribute('class', 'hidden');
+  $viewEntries.classList.remove('hidden');
+  $entryForm.classList.add('hidden');
 }
+
+function handleClick(event) {
+  $viewEntries.classList.remove('hidden');
+  $entryForm.classList.add('hidden');
+}
+
+$entryLink.addEventListener('click', handleClick);
 
 $form.addEventListener('submit', handleSubmit);
 
