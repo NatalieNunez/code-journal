@@ -18,6 +18,8 @@ function handleSubmit(event) {
   var $title = document.getElementById('title');
   var $imageUrl = document.getElementById('imageUrl');
   var $notes = document.getElementById('notes');
+  var $entryForm = document.getElementById('entry-form');
+  var $viewEntries = document.querySelector('.hidden');
 
   valuesObject = {
     title: $title.value,
@@ -31,7 +33,8 @@ function handleSubmit(event) {
   data.entries.unshift(valuesObject);
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
-
+  $viewEntries.removeAttribute('class');
+  $entryForm.setAttribute('class', 'hidden');
 }
 
 $form.addEventListener('submit', handleSubmit);
