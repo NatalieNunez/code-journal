@@ -37,7 +37,14 @@ function handleSubmit(event) {
   $form.reset();
   $viewEntries.classList.remove('hidden');
   $entryForm.classList.add('hidden');
+
+  // for (var i = 0; i < data.entries.length; i++) {
+  //   var object = renderEntries(valuesObject);
+  //   $parent.appendChild(object);
+  // }
 }
+
+$form.addEventListener('submit', handleSubmit);
 
 function handleClick(event) {
   $viewEntries.classList.remove('hidden');
@@ -46,9 +53,11 @@ function handleClick(event) {
 
 $entryLink.addEventListener('click', handleClick);
 
-$form.addEventListener('submit', handleSubmit);
-
-function DOMContentLoaded(entry) {
+function renderEntries(entry) {
+  // for (var i = 0; i < data.entries.length; i++) {
+  //   var object = renderEntries(valuesObject);
+  //   $parent.appendChild(object);
+  // }
   var $div = document.createElement('div');
   $div.setAttribute('class', 'row entry-block');
   $parent.appendChild($div);
@@ -78,14 +87,15 @@ function DOMContentLoaded(entry) {
 
   $li1.appendChild($titleNode);
   $li2.appendChild($notesNode);
+
   return $div;
 }
 
 var $parent = document.getElementById('view-entries');
 
 for (var i = 0; i < data.entries.length; i++) {
-  var object = DOMContentLoaded(valuesObject);
+  var object = renderEntries(valuesObject);
   $parent.appendChild(object);
 }
 
-window.addEventListener('DOMContentLoaded', DOMContentLoaded);
+window.addEventListener('DOMContentLoaded', renderEntries);
