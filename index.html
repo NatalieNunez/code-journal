@@ -21,10 +21,10 @@
 <body>
   <header>
     <div class="container">
-      <h2>Code Journal</h2>
       <nav class="nav-bar">
         <ol>
-          <li><a href="#view-entries">Entries</a></li>
+          <li><a href="#entry-form" class="home">Code Journal</a></li>
+          <li><a href="#view-entries" class="view-entry-link">Entries</a></li>
         </ol>
       </nav>
     </div>
@@ -60,8 +60,10 @@
           </div>
         </form>
       </div>
+
+
       <div data-view="entries" id="view-entries" class="hidden">
-        <div class="row">
+        <div class="row" id="sibling">
           <h1 class="column-full">Entries</h1>
         </div>
       </div>

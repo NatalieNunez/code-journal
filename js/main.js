@@ -14,57 +14,34 @@ $photoUrl.addEventListener('input', handleInput);
 
 var $entryForm = document.getElementById('entry-form');
 var $viewEntries = document.querySelector('.hidden');
-var $entryLink = document.querySelector('a');
-
-function handleSubmit(event) {
-  event.preventDefault();
-
-  var $title = document.getElementById('title');
-  var $imageUrl = document.getElementById('imageUrl');
-  var $notes = document.getElementById('notes');
-
-  valuesObject = {
-    title: $title.value,
-    imageUrl: $imageUrl.value,
-    notes: $notes.value,
-    entryId: data.nextEntryId
-  };
-
-  data.nextEntryId = data.nextEntryId + 1;
-
-  data.entries.unshift(valuesObject);
-  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $form.reset();
-  $viewEntries.classList.remove('hidden');
-  $entryForm.classList.add('hidden');
-
-  // for (var i = 0; i < data.entries.length; i++) {
-  //   var object = renderEntries(valuesObject);
-  //   $parent.appendChild(object);
-  // }
-}
-
-$form.addEventListener('submit', handleSubmit);
+var $entryLink = document.querySelector('.view-entry-link');
+var $homeLink = document.querySelector('.home');
 
 function handleClick(event) {
-  $viewEntries.classList.remove('hidden');
-  $entryForm.classList.add('hidden');
+  if (event.target === $entryLink) {
+    $viewEntries.classList.remove('hidden');
+    $entryForm.classList.add('hidden');
+  }
+  if (event.target === $homeLink) {
+    $viewEntries.classList.add('hidden');
+    $entryForm.classList.remove('hidden');
+  }
 }
 
 $entryLink.addEventListener('click', handleClick);
+$homeLink.addEventListener('click', handleClick);
 
-function renderEntries(entry) {
-  // for (var i = 0; i < data.entries.length; i++) {
-  //   var object = renderEntries(valuesObject);
-  //   $parent.appendChild(object);
-  // }
+var $entryView = document.getElementById('view-entries');
+
+// render 1 entry
+function renderEntry(entry) {
   var $div = document.createElement('div');
   $div.setAttribute('class', 'row entry-block');
-  $parent.appendChild($div);
+  // $entryView.appendChild($div); // do i need
 
   var $img = document.createElement('img');
   $img.setAttribute('class', 'column-half');
-  $img.setAttribute('src', data.entries[i].imageUrl);
+  $img.setAttribute('src', entry.imageUrl);
   $div.appendChild($img);
 
   var $ul = document.createElement('ul');
@@ -78,11 +55,11 @@ function renderEntries(entry) {
   $ul.appendChild($li2);
 
   var $titleNode = document.createElement('h1');
-  var $titleText = document.createTextNode(data.entries[i].title);
+  var $titleText = document.createTextNode(entry.title);
   $titleNode.appendChild($titleText);
 
   var $notesNode = document.createElement('h4');
-  var $notesText = document.createTextNode(data.entries[i].notes);
+  var $notesText = document.createTextNode(entry.notes);
   $notesNode.appendChild($notesText);
 
   $li1.appendChild($titleNode);
@@ -91,11 +68,40 @@ function renderEntries(entry) {
   return $div;
 }
 
-var $parent = document.getElementById('view-entries');
-
-for (var i = 0; i < data.entries.length; i++) {
-  var object = renderEntries(valuesObject);
-  $parent.appendChild(object);
+// this function receives an array of objects and appends to dom each individual entry.
+function renderAllEntries(entries) {
+  for (var i = 0; i < entries.length; i++) {
+    var object = renderEntry(entries[i]);
+    $entryView.appendChild(object);
+  }
 }
 
-window.addEventListener('DOMContentLoaded', renderEntries);
+// this function is ran after save is clicked - adds entry to front of data.entries
+function handleSubmit(event) {
+  event.preventDefault();
+
+  var $title = document.getElementById('title');
+  var $imageUrl = document.getElementById('imageUrl');
+  var $notes = document.getElementById('notes');
+  var secondChild = $entryView.children[1];
+
+  valuesObject = {
+    title: $title.value,
+    imageUrl: $imageUrl.value,
+    notes: $notes.value,
+    entryId: data.nextEntryId
+  };
+
+  data.nextEntryId++;
+
+  data.entries.unshift(valuesObject);
+  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
+  $viewEntries.classList.remove('hidden');
+  $entryForm.classList.add('hidden');
+  $entryView.insertBefore(renderEntry(valuesObject), secondChild);
+}
+
+$form.addEventListener('submit', handleSubmit);
+
+window.addEventListener('DOMContentLoaded', renderAllEntries(data.entries));

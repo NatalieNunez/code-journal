@@ -8,12 +8,14 @@ h1 {
   margin: 0.5rem 0;
 }
 
-h2 {
+.home {
   font-family: 'Encode Sans', sans-serif;
   color: white;
   font-size: 1.5rem;
   padding: 1.1rem;
   display: inline-block;
+  outline: none;
+  text-decoration: none;
 }
 
 .nav-bar {
@@ -22,6 +24,7 @@ h2 {
 
 ol {
   list-style: none;
+  padding: 0;
 }
 
 a {
@@ -85,6 +88,10 @@ button {
 ul {
   list-style: none;
   padding: 0;
+  display: inline;
+}
+
+li {
   display: inline;
 }
 
