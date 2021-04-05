@@ -33,11 +33,9 @@ $homeLink.addEventListener('click', handleClick);
 
 var $entryView = document.getElementById('view-entries');
 
-// render 1 entry
 function renderEntry(entry) {
   var $div = document.createElement('div');
   $div.setAttribute('class', 'row entry-block');
-  // $entryView.appendChild($div); // do i need
 
   var $img = document.createElement('img');
   $img.setAttribute('class', 'column-half');
@@ -68,7 +66,6 @@ function renderEntry(entry) {
   return $div;
 }
 
-// this function receives an array of objects and appends to dom each individual entry.
 function renderAllEntries(entries) {
   for (var i = 0; i < entries.length; i++) {
     var object = renderEntry(entries[i]);
@@ -76,7 +73,6 @@ function renderAllEntries(entries) {
   }
 }
 
-// this function is ran after save is clicked - adds entry to front of data.entries
 function handleSubmit(event) {
   event.preventDefault();
 
