@@ -1,6 +1,6 @@
 .hidden,
 .entry-header {
-  display: none !important;
+  display: none;
 }
 
 .container {
@@ -32,4 +32,8 @@
   .column-half {
     width: 50%;
   }
+}
+
+#view-entries {
+  position: relative;
 }

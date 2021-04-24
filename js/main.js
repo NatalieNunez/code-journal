@@ -17,12 +17,23 @@ var $viewEntries = document.querySelector('.hidden');
 var $entryLink = document.querySelector('.view-entry-link');
 var $homeLink = document.querySelector('.home');
 
+var entryHeaderDiv = document.createElement('div');
+entryHeaderDiv.className = 'row';
+var entriesHeader = document.createElement('h1');
+entriesHeader.textContent = 'Entries';
+entriesHeader.className = 'column-full';
+var newButton = document.createElement('button');
+newButton.textContent = 'New';
+newButton.className = 'new-btn';
+entryHeaderDiv.appendChild(entriesHeader);
+entryHeaderDiv.appendChild(newButton);
+
 function handleClick(event) {
   if (event.target === $entryLink) {
     $viewEntries.classList.remove('hidden');
     $entryForm.classList.add('hidden');
   }
-  if (event.target === $homeLink) {
+  if (event.target === $homeLink || event.target === newButton) {
     $viewEntries.classList.add('hidden');
     $entryForm.classList.remove('hidden');
   }
@@ -30,6 +41,7 @@ function handleClick(event) {
 
 $entryLink.addEventListener('click', handleClick);
 $homeLink.addEventListener('click', handleClick);
+newButton.addEventListener('click', handleClick);
 
 var $entryView = document.getElementById('view-entries');
 
@@ -71,6 +83,7 @@ function renderAllEntries(entries) {
     var object = renderEntry(entries[i]);
     $entryView.appendChild(object);
   }
+  $entryView.prepend(entryHeaderDiv);
 }
 
 function handleSubmit(event) {
@@ -79,7 +92,6 @@ function handleSubmit(event) {
   var $title = document.getElementById('title');
   var $imageUrl = document.getElementById('imageUrl');
   var $notes = document.getElementById('notes');
-  var secondChild = $entryView.children[1];
 
   valuesObject = {
     title: $title.value,
@@ -95,9 +107,9 @@ function handleSubmit(event) {
   $form.reset();
   $viewEntries.classList.remove('hidden');
   $entryForm.classList.add('hidden');
-  $entryView.insertBefore(renderEntry(valuesObject), secondChild);
+  $entryView.prepend(renderEntry(valuesObject));
+  $entryView.prepend(entryHeaderDiv);
 }
-
 $form.addEventListener('submit', handleSubmit);
 
 window.addEventListener('DOMContentLoaded', renderAllEntries(data.entries));
