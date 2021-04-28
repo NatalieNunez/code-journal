@@ -8,11 +8,26 @@ h1 {
   margin: 0.5rem 0;
 }
 
-h2 {
+.home {
   font-family: 'Encode Sans', sans-serif;
-  color: white;
   font-size: 1.5rem;
   padding: 1.1rem;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.nav-bar {
+  display: inline-block;
+}
+
+ol {
+  padding: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
 }
 
 header {
@@ -38,7 +53,7 @@ input {
 
 textarea {
   width: 100%;
-  height: 200px;
+  height: 14rem;
   padding: 2%;
   border: solid 1px gainsboro;
 }
@@ -64,4 +79,31 @@ button {
 
 .column-full.button {
   text-align: end;
+}
+
+ul {
+  padding: 0;
+  display: inline;
+}
+
+li {
+  display: inline;
+}
+
+.row.entry-block {
+  margin-bottom: 2rem;
+}
+
+.new-btn,
+.entry-header {
+  display: inline;
+}
+
+.new-btn {
+  position: absolute;
+  right: 0;
+  top: 2.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.8rem;
 }
