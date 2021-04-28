@@ -3,7 +3,6 @@
 var $photoUrl = document.querySelector('#imageUrl');
 var $photo = document.querySelector('img');
 var $form = document.querySelector('form');
-var valuesObject = {};
 
 function handleInput(event) {
   var userImageUrl = event.target.value;
@@ -93,7 +92,7 @@ function handleSubmit(event) {
   var $imageUrl = document.getElementById('imageUrl');
   var $notes = document.getElementById('notes');
 
-  valuesObject = {
+  var valuesObject = {
     title: $title.value,
     imageUrl: $imageUrl.value,
     notes: $notes.value,
@@ -112,4 +111,6 @@ function handleSubmit(event) {
 }
 $form.addEventListener('submit', handleSubmit);
 
-window.addEventListener('DOMContentLoaded', renderAllEntries(data.entries));
+window.addEventListener('DOMContentLoaded', function (event) {
+  renderAllEntries(data.entries);
+});
