@@ -74,7 +74,7 @@ function renderEntry(entry) {
   $notesNode.appendChild($notesText);
 
   $li1.appendChild($titleNode);
-  $li1.appendChild($editIcon);
+  $titleNode.appendChild($editIcon);
   $li2.appendChild($notesNode);
 
   return $div;

@@ -114,7 +114,6 @@ li {
 i.fas.fa-pen {
   position: absolute;
   right: 0;
-  top: 0;
-  align-items: center;
-  font-size: 3rem;
+  color: rgb(116, 65, 156);
+  padding-top: 12px;
 }
