@@ -6,6 +6,8 @@ body {
 h1 {
   font-size: 3rem;
   margin: 0.5rem 0;
+  display: inline-block;
+  width: 100%;
 }
 
 .home {
@@ -88,6 +90,7 @@ ul {
 
 li {
   display: inline;
+  position: relative;
 }
 
 .row.entry-block {
@@ -106,4 +109,12 @@ li {
   font-size: 1.5rem;
   border-radius: 0.5rem;
   padding: 0.5rem 0.8rem;
+}
+
+i.fas.fa-pen {
+  position: absolute;
+  right: 0;
+  top: 0;
+  align-items: center;
+  font-size: 3rem;
 }

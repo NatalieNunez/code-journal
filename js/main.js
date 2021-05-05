@@ -65,6 +65,8 @@ function renderEntry(entry) {
 
   var $titleNode = document.createElement('h1');
   var $titleText = document.createTextNode(entry.title);
+  var $editIcon = document.createElement('i');
+  $editIcon.className = 'fas fa-pen';
   $titleNode.appendChild($titleText);
 
   var $notesNode = document.createElement('h4');
@@ -72,6 +74,7 @@ function renderEntry(entry) {
   $notesNode.appendChild($notesText);
 
   $li1.appendChild($titleNode);
+  $li1.appendChild($editIcon);
   $li2.appendChild($notesNode);
 
   return $div;
