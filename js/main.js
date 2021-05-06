@@ -78,6 +78,7 @@ function renderEntry(entry) {
   $li2.appendChild($notesNode);
 
   $div.setAttribute('data-entry-id', entry.entryId);
+  $editIcon.setAttribute('data-entry-id', entry.entryId);
   return $div;
 }
 
@@ -113,7 +114,16 @@ function handleSubmit(event) {
   $entryView.prepend(renderEntry(valuesObject));
   $entryView.prepend(entryHeaderDiv);
 }
+
 $form.addEventListener('submit', handleSubmit);
+
+// const $editIcon = document.querySelectorAll('fa-pen');
+// console.log($editIcon);
+function click(event) {
+  // console.log(event.target);
+}
+
+$entryView.addEventListener('click', click);
 
 window.addEventListener('DOMContentLoaded', function (event) {
   renderAllEntries(data.entries);
