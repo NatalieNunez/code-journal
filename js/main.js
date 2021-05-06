@@ -77,6 +77,7 @@ function renderEntry(entry) {
   $titleNode.appendChild($editIcon);
   $li2.appendChild($notesNode);
 
+  $div.setAttribute('data-entry-id', entry.entryId);
   return $div;
 }
 
