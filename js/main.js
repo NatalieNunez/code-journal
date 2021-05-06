@@ -37,9 +37,18 @@ function handleClick(event) {
     $viewEntries.classList.add('hidden');
     $entryForm.classList.remove('hidden');
   }
-  // if (event.target.classList.contains('fa-pen')) {
-  //   console.log(event.target);
-  // }
+  if (event.target.classList.contains('fa-pen')) {
+    // console.log('idClicked:', event.target.dataset.entryId);
+    // console.log('dataset type:', typeof Number(event.target.dataset.entryId));
+    // console.log('entry id type', typeof data.entries[2].entryId);
+    // console.log(data.entries);
+    // console.log('data.editing:', data.editing);
+    for (let i = 0; i < data.entries; i++) {
+      // if (data.entries[i].entryId === Number(event.target.dataset.entryId)) {
+      // console.log(data.entries);
+      // }
+    }
+  }
 }
 
 $entryLink.addEventListener('click', handleClick);
