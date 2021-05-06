@@ -15,6 +15,7 @@ var $entryForm = document.getElementById('entry-form');
 var $viewEntries = document.querySelector('.hidden');
 var $entryLink = document.querySelector('.view-entry-link');
 var $homeLink = document.querySelector('.home');
+var $entryView = document.getElementById('view-entries');
 
 var entryHeaderDiv = document.createElement('div');
 entryHeaderDiv.className = 'row';
@@ -32,17 +33,19 @@ function handleClick(event) {
     $viewEntries.classList.remove('hidden');
     $entryForm.classList.add('hidden');
   }
-  if (event.target === $homeLink || event.target === newButton) {
+  if (event.target === $homeLink || event.target === newButton || event.target.classList.contains('fa-pen')) {
     $viewEntries.classList.add('hidden');
     $entryForm.classList.remove('hidden');
   }
+  // if (event.target.classList.contains('fa-pen')) {
+  //   console.log(event.target);
+  // }
 }
 
 $entryLink.addEventListener('click', handleClick);
 $homeLink.addEventListener('click', handleClick);
 newButton.addEventListener('click', handleClick);
-
-var $entryView = document.getElementById('view-entries');
+$entryView.addEventListener('click', handleClick);
 
 function renderEntry(entry) {
   var $div = document.createElement('div');
@@ -117,13 +120,11 @@ function handleSubmit(event) {
 
 $form.addEventListener('submit', handleSubmit);
 
-// const $editIcon = document.querySelectorAll('fa-pen');
-// console.log($editIcon);
-function click(event) {
-  // console.log(event.target);
-}
+// function click(event) {
+//   // console.log(event.target);
+// }
 
-$entryView.addEventListener('click', click);
+// $entryView.addEventListener('click', click);
 
 window.addEventListener('DOMContentLoaded', function (event) {
   renderAllEntries(data.entries);
