@@ -51,27 +51,27 @@ function handleClick(event) {
   // }
 }
 
-function testClick(event) {
-  if (!event.target.classList.contains('fa-pen')) {
-    return;
-  }
-  // debugger;
-  // console.log(typeof event.target.dataset.entryId);
-  // // console.log('dataset type:', typeof Number(event.target.dataset.entryId));
-  // console.log('entry id type', typeof data.entries[2].entryId);
-  var idNumber = Number(event.target.dataset.entryId);
-  // data.editing = data.entries[idNumber];
-  // console.log(data.entries);
-  // console.log('data.editing:', data.editing);
-  for (var i = 0; i < data.entries; i++) {
-    if (idNumber === data.entries[i].entryId) {
-      // console.log(data.entries);
-    }
-  }
-  // }
-}
+// function testClick(event) {
+//   if (!event.target.classList.contains('fa-pen')) {
+//     return;
+//   }
+//   data.editing = true;
+//   console.log(data.editing);
+//   // debugger;
+//   // console.log(typeof event.target.dataset.entryId);
+//   // // console.log('dataset type:', typeof Number(event.target.dataset.entryId));
+//   // console.log('entry id type', typeof data.entries[2].entryId);
+//   var idNumber = Number(event.target.dataset.entryId);
+//   // data.editing = data.entries[idNumber];
+//   // console.log(data.entries);
+//   // console.log('data.editing:', data.editing);
+//   for (var i = 0; i < data.entries; i++) {
+//     data.editing = data.entries[i][idNumber];
+//   }
+//   // }
+// }
 
-$entryView.addEventListener('click', testClick);
+// $entryView.addEventListener('click', testClick);
 
 $entryLink.addEventListener('click', handleClick);
 $homeLink.addEventListener('click', handleClick);
@@ -150,12 +150,6 @@ function handleSubmit(event) {
 }
 
 $form.addEventListener('submit', handleSubmit);
-
-// function click(event) {
-//   // console.log(event.target);
-// }
-
-// $entryView.addEventListener('click', click);
 
 window.addEventListener('DOMContentLoaded', function (event) {
   renderAllEntries(data.entries);
