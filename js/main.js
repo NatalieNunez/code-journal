@@ -37,24 +37,46 @@ function handleClick(event) {
     $viewEntries.classList.add('hidden');
     $entryForm.classList.remove('hidden');
   }
-  if (event.target.classList.contains('fa-pen')) {
-    // console.log('idClicked:', event.target.dataset.entryId);
-    // console.log('dataset type:', typeof Number(event.target.dataset.entryId));
-    // console.log('entry id type', typeof data.entries[2].entryId);
-    // console.log(data.entries);
-    // console.log('data.editing:', data.editing);
-    for (let i = 0; i < data.entries; i++) {
-      // if (data.entries[i].entryId === Number(event.target.dataset.entryId)) {
+  // if (event.target.classList.contains('fa-pen')) {
+  //   console.log('idClicked:', event.target.dataset.entryId);
+  //   console.log('dataset type:', typeof Number(event.target.dataset.entryId));
+  //   console.log('entry id type', typeof data.entries[2].entryId);
+  //   console.log(data.entries);
+  //   console.log('data.editing:', data.editing);
+  //   for (let i = 0; i < data.entries; i++) {
+  //     if (data.entries[i].entryId === Number(event.target.dataset.entryId)) {
+  //       console.log(data.entries);
+  //     }
+  //   }
+  // }
+}
+
+function testClick(event) {
+  if (!event.target.classList.contains('fa-pen')) {
+    return;
+  }
+  // debugger;
+  // console.log(typeof event.target.dataset.entryId);
+  // // console.log('dataset type:', typeof Number(event.target.dataset.entryId));
+  // console.log('entry id type', typeof data.entries[2].entryId);
+  var idNumber = Number(event.target.dataset.entryId);
+  // data.editing = data.entries[idNumber];
+  // console.log(data.entries);
+  // console.log('data.editing:', data.editing);
+  for (var i = 0; i < data.entries; i++) {
+    if (idNumber === data.entries[i].entryId) {
       // console.log(data.entries);
-      // }
     }
   }
+  // }
 }
+
+$entryView.addEventListener('click', testClick);
 
 $entryLink.addEventListener('click', handleClick);
 $homeLink.addEventListener('click', handleClick);
 newButton.addEventListener('click', handleClick);
-$entryView.addEventListener('click', handleClick);
+// $entryView.addEventListener('click', handleClick);
 
 function renderEntry(entry) {
   var $div = document.createElement('div');
