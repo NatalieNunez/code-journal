@@ -11,10 +11,10 @@ function handleInput(event) {
 
 $photoUrl.addEventListener('input', handleInput);
 
-var $entryForm = document.getElementById('entry-form');
-var $viewEntries = document.querySelector('.hidden');
-var $entryLink = document.querySelector('.view-entry-link');
-var $homeLink = document.querySelector('.home');
+const $entryForm = document.getElementById('entry-form');
+const $viewEntries = document.querySelector('.hidden');
+const $entryLink = document.querySelector('.view-entry-link');
+const $homeLink = document.querySelector('.home');
 
 var entryHeaderDiv = document.createElement('div');
 entryHeaderDiv.className = 'row';
